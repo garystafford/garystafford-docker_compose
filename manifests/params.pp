@@ -1,6 +1,6 @@
-# Class: sakila_mysql_db::params
+# Class: docker_compose::params
 #
-# This module manages sakila_mysql_db
+# This module manages docker_compose
 #
 # Parameters: none
 #
