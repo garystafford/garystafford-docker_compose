@@ -1,11 +1,6 @@
 {
   "author": "Gary A. Stafford",
-  "dependencies": [
-    {
-      "name": "puppetlabs-apt",
-      "version_requirement": ">=1.6.0"
-    }
-  ],
+  "dependencies": [],
   "license": "Apache-2.0",
   "name": "garystafford-docker_compose",
   "operatingsystem_support": [
@@ -34,5 +29,5 @@
     "Docker",
     "Compose"
   ],
-  "version": "0.2.0"
+  "version": "0.2.1"
 }
