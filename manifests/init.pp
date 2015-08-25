@@ -14,6 +14,9 @@
 # Sample Usage:
 #   include 'docker_compose'
 #   class { 'docker_compose': }
+#   class { 'docker_compose':
+#     version => '1.4.0'
+#   }
 #
 class docker_compose ($version = $docker_compose::params::version) inherits 
 docker_compose::params {
