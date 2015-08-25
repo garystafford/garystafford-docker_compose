@@ -12,7 +12,16 @@
     {
       "operatingsystem": "Ubuntu",
       "operatingsystemrelease": [
+        "12.04",
         "15.04"
+      ]
+    },
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7"
       ]
     }
   ],

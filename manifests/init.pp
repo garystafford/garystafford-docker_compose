@@ -2,7 +2,10 @@
 #
 # This module installs Docker Compose
 #
-# Parameters: none
+# Parameters:
+#
+# [*version*]
+#   The version of Docker Compose to be installed. Default is 1.4.0.
 #
 # Actions:
 #
@@ -12,16 +15,11 @@
 #   include 'docker_compose'
 #   class { 'docker_compose': }
 #
-class docker_compose {
-  include apt
-
+class docker_compose ($version = $docker_compose::params::version) {
   package { 'curl': ensure => 'installed' }
 
-  Exec {
-    path => ['/bin/', '/sbin/', '/usr/bin/', '/usr/sbin/'] }
-
   exec { 'download-docker-compose':
-    command => 'curl -L https://github.com/docker/compose/releases/download/VERSION_NUM/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose',
+    command => 'curl -L https://github.com/docker/compose/releases/download/${version}/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose',
     user    => root,
     onlyif  => 'test ! -f /usr/local/bin/docker-compose'
   } ->
