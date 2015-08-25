@@ -38,5 +38,4 @@ docker_compose::params {
     group => 'root',
     mode  => '0775',
   }
-
 }
