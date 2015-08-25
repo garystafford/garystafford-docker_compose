@@ -15,19 +15,25 @@
 #   include 'docker_compose'
 #   class { 'docker_compose': }
 #
-class docker_compose ($version = $docker_compose::params::version) {
+class docker_compose ($version = $docker_compose::params::version) inherits 
+docker_compose::params {
   package { 'curl': ensure => 'installed' }
 
   exec { 'download-docker-compose':
-    command => 'curl -L https://github.com/docker/compose/releases/download/${version}/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose',
+    command => "curl -L https://github.com/docker/compose/releases/download/${version}/docker-compose-`uname -s`-`uname -m` > /tmp/docker-compose",
     user    => root,
-    onlyif  => 'test ! -f /usr/local/bin/docker-compose'
+    creates => '/tmp/bin/docker-compose'
+  } ->
+  exec { 'move-docker-compose':
+    command => 'mv /tmp/docker-compose /usr/local/bin',
+    user    => root,
+    creates => '/usr/local/bin/docker-compose'
   } ->
   file { '/usr/local/bin/docker-compose':
     path  => '/usr/local/bin/docker-compose',
     owner => 'root',
     group => 'root',
-    mode  => '0755',
+    mode  => '0775',
   }
 
 }
