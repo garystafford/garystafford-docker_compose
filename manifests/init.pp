@@ -20,7 +20,7 @@
 #
 class docker_compose ($version = $docker_compose::params::version) inherits 
 docker_compose::params {
-  package { 'curl': ensure => 'installed' }
+  # package { 'curl': ensure => 'installed' }
 
   exec { 'download-docker-compose':
     command => "curl -L https://github.com/docker/compose/releases/download/${version}/docker-compose-`uname -s`-`uname -m` > /tmp/docker-compose",
