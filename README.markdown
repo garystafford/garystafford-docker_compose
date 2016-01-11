@@ -20,7 +20,7 @@ class { 'docker_compose': }
 ```
 ```puppet
 class { 'docker_compose': 
-  version => '1.4.0'
+  version => '1.5.2'
 }
 ```
 
@@ -33,4 +33,4 @@ should return: `/usr/local/bin/docker-compose'
 ```sh
 docker-compose --version
 ```
-should return: `docker-compose version: 1.4.0`
+should return: `docker-compose version: 1.5.2`
