@@ -7,7 +7,7 @@ Puppet module for downloading and installing [Docker Compose](https://docs.docke
 This module is currently tested on:
 
 * Ubuntu 15.04
-* CentOS 7.1
+* CentOS 6.6, 7.1
 
 It should also work on other Linux distros...
 
