@@ -36,6 +36,6 @@ docker_compose::params {
     path  => '/usr/local/bin/docker-compose',
     owner => 'root',
     group => 'root',
-    mode  => '0775',
+    mode  => '0755',
   }
 }
