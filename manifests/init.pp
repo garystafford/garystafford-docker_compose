@@ -37,14 +37,9 @@ class docker_compose (
     unless  => "[ $(${docker_version_cmd} | cut -d\",\" -f1 | cut -d\" \" -f3) = \"${version}\" ]",
   } ->
   exec { 'move-docker-compose':
-<<<<<<< HEAD
-    command => 'mv /tmp/docker-compose /usr/local/bin',
-    user    => root
-=======
     command => "mv /tmp/docker-compose ${docker_compose_path}",
     user    => root,
     creates => "${docker_compose_path}/docker-compose"
->>>>>>> 1395540ba00c6772f6c2be1d600244533a77a02e
   } ->
   file { "${docker_compose_path}/docker-compose":
     path  => "${docker_compose_path}/docker-compose",
