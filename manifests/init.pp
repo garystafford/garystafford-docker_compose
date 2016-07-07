@@ -29,8 +29,7 @@ docker_compose::params {
   } ->
   exec { 'move-docker-compose':
     command => 'mv /tmp/docker-compose /usr/local/bin',
-    user    => root,
-    creates => '/usr/local/bin/docker-compose'
+    user    => root
   } ->
   file { '/usr/local/bin/docker-compose':
     path  => '/usr/local/bin/docker-compose',
