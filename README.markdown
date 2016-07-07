@@ -7,7 +7,7 @@ Puppet module for downloading and installing [Docker Compose](https://docs.docke
 This module is currently tested on:
 
 * Ubuntu 15.04
-* CentOS 7.1
+* CentOS 6.6, 7.1
 
 It should also work on other Linux distros...
 
@@ -33,4 +33,8 @@ should return: `/usr/local/bin/docker-compose'
 ```sh
 docker-compose --version
 ```
+<<<<<<< HEAD
 should return: `docker-compose version: 1.5.2`
+=======
+should return: `docker-compose version: 1.4.0`
+>>>>>>> cc716f0e82404997ade9ec8256e7a68e9cc7c61d
