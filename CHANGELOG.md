@@ -2,6 +2,12 @@
 
 Change history for garystafford-docker_compose
 
+#### 0.4.1
+
+Released 2016-09-24
+
+* Merge pull request #7 from khdevel/khdevel_move-docker-compose_unless
+
 #### 0.4.0
 
 Released 2016-09-24
