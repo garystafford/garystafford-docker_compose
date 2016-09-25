@@ -5,7 +5,7 @@
 # Parameters:
 #
 # [*version*]
-#   The version of Docker Compose to be installed. Default is 1.5.2.
+#   The version of Docker Compose to be installed. Default is 1.8.1.
 #
 # Actions:
 #
@@ -15,19 +15,18 @@
 #   include 'docker_compose'
 #   class { 'docker_compose': }
 #   class { 'docker_compose':
-#     version => '1.5.2'
+#     version => '1.8.1'
 #   }
 #
 class docker_compose (
   $version             = $docker_compose::params::version,
   $docker_tmp          = $docker_compose::params::docker_tmp,
-  $docker_compose_path = $docker_compose::params::docker_compose_path,
-) inherits docker_compose::params {
+  $docker_compose_path = $docker_compose::params::docker_compose_path,) inherits 
+docker_compose::params {
   # package { 'curl': ensure => 'installed' }
   if $docker_tmp != undef {
     $docker_version_cmd = "TMP=${docker_tmp} ${docker_compose_path}/docker-compose --version"
-  }
-  else {
+  } else {
     $docker_version_cmd = "${docker_compose_path}/docker-compose --version"
   }
   exec { 'download-docker-compose':
