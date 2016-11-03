@@ -23,7 +23,7 @@ class docker_compose (
   $docker_tmp          = $docker_compose::params::docker_tmp,
   $docker_compose_path = $docker_compose::params::docker_compose_path,) inherits 
 docker_compose::params {
-  # package { 'curl': ensure => 'installed' }
+  ensure_packages(['curl'], {'ensure' => 'installed'})
   if $docker_tmp != undef {
     $docker_version_cmd = "TMP=${docker_tmp} ${docker_compose_path}/docker-compose --version"
   } else {
@@ -34,6 +34,7 @@ docker_compose::params {
     user    => root,
     creates => '/tmp/bin/docker-compose',
     unless  => "[ $(${docker_version_cmd} | cut -d\",\" -f1 | cut -d\" \" -f3) = \"${version}\" ]",
+    require => Package['curl'],
   } ->
   exec { 'move-docker-compose':
     command => "mv /tmp/docker-compose ${docker_compose_path}",
